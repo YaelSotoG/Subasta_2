@@ -18,7 +18,7 @@ export default function Example() {
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24 sm:items-center">
         <div className="space-y-12">
           <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-4xl  font-bold tracking-tight text-white sm:text-4xl">
               Nuestros mentores
             </h2>
             <p className="text-xl text-gray-100">
@@ -26,28 +26,11 @@ export default function Example() {
               bonitas personas y comen muchos dulces 🤓
             </p>
           </div>
-          <div className="space-x-2 content-center">
-            <Image
-              src="/mentors/tarjeta-cesar.png"
-              width={250}
-              height={350}
-              alt="César"
-              className="mr-4"
-            />
-            <Image
-              src="/mentors/tarjeta-cesar.png"
-              width={250}
-              height={350}
-              alt="César"
-              className="mx-3"
-            />
-            <Image
-              src="/mentors/tarjeta-cesar.png"
-              width={250}
-              height={350}
-              alt="César"
-              className="mx-3"
-            />
+          <div className="place-items-center space-y-4">
+            <img src="/mentors/tarjeta-andy.png"></img>
+            <img src="/mentors/tarjeta-bart.png"></img>
+            <img src="/mentors/tarjeta-cesar.png"></img>
+            <img src="/mentors/tarjeta-meny.png"></img>
           </div>
         </div>
       </div>
