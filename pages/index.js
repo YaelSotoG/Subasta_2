@@ -26,11 +26,14 @@ export default function Example() {
               bonitas personas y comen muchos dulces 🤓
             </p>
           </div>
-          <div className="place-items-center space-y-4">
+          <div className="place-items-center space-y-4 lg:space-y-1 lg:scale-75 lg:grid lg:grid-cols-4">
             <img src="/mentors/tarjeta-andy.png"></img>
             <img src="/mentors/tarjeta-bart.png"></img>
             <img src="/mentors/tarjeta-cesar.png"></img>
             <img src="/mentors/tarjeta-meny.png"></img>
+            <img src="/mentors/tarjeta-andres.png"></img>
+            <img src="/mentors/tarjeta-karely.png"></img>
+            <img src="/mentors/tarjeta-sorely.png"></img>
           </div>
         </div>
       </div>
