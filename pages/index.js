@@ -19,22 +19,13 @@ export default function Example() {
         <div className="space-y-12">
           <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
             <h2 className="text-4xl  font-bold tracking-tight text-white sm:text-4xl">
-              Nuestros mentores
+              Next JS 12 Starter - Bartito
             </h2>
             <p className="text-xl text-gray-100">
-              Si necesitas, pide ayuda a cualquiera de nuestros mentores, son
-              bonitas personas y comen muchos dulces 🤓
+              Lo que necesitas para iniciar con Next.js 12 🤓
             </p>
           </div>
-          <div className="place-items-center space-y-4 lg:space-y-1 lg:scale-75 lg:grid lg:grid-cols-4">
-            <img src="/mentors/tarjeta-andy.png"></img>
-            <img src="/mentors/tarjeta-bart.png"></img>
-            <img src="/mentors/tarjeta-cesar.png"></img>
-            <img src="/mentors/tarjeta-meny.png"></img>
-            <img src="/mentors/tarjeta-andres.png"></img>
-            <img src="/mentors/tarjeta-karely.png"></img>
-            <img src="/mentors/tarjeta-sorely.png"></img>
-          </div>
+          <div className="place-items-center space-y-4 lg:space-y-1 lg:scale-75 lg:grid lg:grid-cols-4"></div>
         </div>
       </div>
     </div>
