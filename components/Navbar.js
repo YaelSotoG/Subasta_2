@@ -1,16 +1,6 @@
-import Image from "next/image";
+import {VisualizarDatos, Transaccion} from "pages/transaccion.js"
 
-const people = [
-  {
-    name: "Leonard Krasner",
-    role: "Senior Designer",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-    twitterUrl: "#",
-    linkedinUrl: "#",
-  },
-  // More people...
-];
+
 
 export default function Navbar() {
   const llamarWallet  = async () => {
@@ -26,13 +16,14 @@ export default function Navbar() {
           
         }
       }
-      window.open('https://phantom.app/', '_blank');
+      
       
     };
     
     const provider = getProvider(); // see "Detecting the Provider"
     console.log("is phantom installed 0>", isPhantomInstalled)
     console.log("provider =>", provider)
+    //window.open('https://phantom.app/', '_blank');
 
     
   provider.on("connect", () => console.log("connected!"));
@@ -40,11 +31,16 @@ export default function Navbar() {
   // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo 
   console.log(provider.isConnected);
   // true
+  
 
     try {
       const resp = await window.phantom.solana.connect();
       const publicKey = resp?.publicKey?.toString()
+      const token = resp?.
+      console.log(token)
+      console.log(VisualizarDatos)
     console.log(publicKey);
+    
     } catch (error) {
       console.log("ya valio =>", error)
     }
