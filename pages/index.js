@@ -1,10 +1,11 @@
 
 import MainLayout from "../components/layouts/MainLayout"
+import Heater from "../components/Heater"
 
 export default function Home() {
 return (
   <MainLayout>
-    Oliwi n.n uwu
+    <Heater />
   </MainLayout>
 ) 
 
