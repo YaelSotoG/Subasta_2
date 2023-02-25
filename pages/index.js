@@ -2,8 +2,9 @@ import {useEffect} from 'react'
 import MainLayout from "../components/layouts/MainLayout"
 import Heater from "../components/Heater"
 
+// export default function Home({resultado}) {
 export default function Home({resultado}) {
- console.log(resultado)
+//  console.log(resultado)
 return (
   <MainLayout>
     <Heater />
