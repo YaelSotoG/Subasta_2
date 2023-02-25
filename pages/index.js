@@ -1,4 +1,4 @@
-import {useEffect} from 'react'
+// import {useEffect} from 'react'
 import MainLayout from "../components/layouts/MainLayout"
 import Heater from "../components/Heater"
 
