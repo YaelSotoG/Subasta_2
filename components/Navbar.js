@@ -13,8 +13,43 @@ const people = [
 ];
 
 export default function Navbar() {
-  function llamarWallet(){
-    console.log("se llamo");
+  const llamarWallet  = async () => {
+    const isPhantomInstalled = window.phantom?.solana?.isPhantom
+    
+    
+    const getProvider = () =>{
+      if('phantom' in window){
+        const provider  = window.phantom?.solana;
+        
+        if(provider?.isPhantom){
+          return provider;
+          
+        }
+      }
+      window.open('https://phantom.app/', '_blank');
+      
+    };
+    
+    const provider = getProvider(); // see "Detecting the Provider"
+    console.log("is phantom installed 0>", isPhantomInstalled)
+    console.log("provider =>", provider)
+
+    
+  provider.on("connect", () => console.log("connected!"));
+  //console.log(provider.publicKey.toString());
+  // 26qv4GCcx98RihuK3c4T6ozB3J7L6VwCuFVc7Ta2A3Uo 
+  console.log(provider.isConnected);
+  // true
+
+    try {
+      const resp = await window.phantom.solana.connect();
+      const publicKey = resp?.publicKey?.toString()
+    console.log(publicKey);
+    } catch (error) {
+      console.log("ya valio =>", error)
+    }
+
+
   }
   return (
     <>
