@@ -13,21 +13,13 @@ const people = [
 ];
 
 export default function Example() {
+  function llamarWallet(){
+    console.log("se llamo");
+  }
   return (
-    <div className="bg-gradient-to-r from-teal-500 to-cyan-500">
-      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 lg:py-24 sm:items-center">
-        <div className="space-y-12">
-          <div className="space-y-5 sm:space-y-4 md:max-w-xl lg:max-w-3xl xl:max-w-none">
-            <h2 className="text-4xl  font-bold tracking-tight text-white sm:text-4xl">
-              Next JS 12 Starter - Bartito
-            </h2>
-            <p className="text-xl text-gray-100">
-              Lo que necesitas para iniciar con Next.js 12 🤓
-            </p>
-          </div>
-          <div className="place-items-center space-y-4 lg:space-y-1 lg:scale-75 lg:grid lg:grid-cols-4"></div>
-        </div>
+    <div>
+
+    <button onClick={llamarWallet}><h1>Wallet</h1></button>
       </div>
-    </div>
   );
 }
