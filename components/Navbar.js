@@ -1,12 +1,20 @@
 import {VisualizarDatos, Transaccion} from "pages/transaccion.js"
+import{firma}from "pages/Firma.js"
+
+const web3 = require("@solana/web3.js");
 
 
+//const fir = firma;
 
 export default function Navbar() {
   const llamarWallet  = async () => {
     const isPhantomInstalled = window.phantom?.solana?.isPhantom
     
     
+/////////////////////////////////7
+
+
+////////////////////////////////////
     const getProvider = () =>{
       if('phantom' in window){
         const provider  = window.phantom?.solana;
@@ -36,8 +44,8 @@ export default function Navbar() {
     try {
       const resp = await window.phantom.solana.connect();
       const publicKey = resp?.publicKey?.toString()
-      const token = resp?.
-      console.log(token)
+     
+     
       console.log(VisualizarDatos)
     console.log(publicKey);
     
@@ -46,15 +54,23 @@ export default function Navbar() {
     }
 
 
+    
+
+
   }
+  
+    
+
+
   return (
     <>
       <div className="flex justify-end items-center px-3 py-4 bg-gradient-to-b from-black to-white  fixed w-full h-32 ">
-        <button className="bg-[#8f250c] h-16 rounded-full w-60" onClick={llamarWallet}>
+        <button className="bg-[#8f250c] h-16 rounded-full w-60" onClick={firma}>
             <h1 className="text-bold text-4xl text-white">Wallet</h1>
         </button>
       </div>
     </>
     
   );
-}
+  }
+  
