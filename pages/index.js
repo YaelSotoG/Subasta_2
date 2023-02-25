@@ -8,9 +8,9 @@ return (
   <MainLayout>
     <Heater />
     {/* console.log(data); */}
-    <div> 
+    {/* <div> 
       <h1>{resultado.id}</h1>
-    </div>
+    </div> */}
  
   </MainLayout>
 ) 
@@ -18,19 +18,19 @@ return (
   
   }
 
+//recuerda descomentar
+  // export async function getStaticProps(){
+  //   const url= "https://pokeapi.co/api/v2/pokemon/ditto";
+  //   const respuesta=await fetch(url);
+  //   const resultado=await respuesta.json();
+  //   console.log(resultado);
+  //   return{
+  //     props:{
+  //       resultado
 
-  export async function getStaticProps(){
-    const url= "https://pokeapi.co/api/v2/pokemon/ditto";
-    const respuesta=await fetch(url);
-    const resultado=await respuesta.json();
-    console.log(resultado);
-    return{
-      props:{
-        resultado
-
-      }
-    }
-  }
+  //     }
+  //   }
+  // }
 
   
   export  function Example(){
