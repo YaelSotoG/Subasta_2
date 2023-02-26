@@ -1,10 +1,10 @@
 export default function CanvasTransform(){
     return(
-        <div className="flex mt-40">
-            <div className="relative w-[260px] h-[340px] group mx-40">
+        <div className=" relative flex mt-40 z-40 h-[800px]">
+            <div className="relative w-[300px] h-[380px] group mx-40">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/air_force.jpg"></img>
-                    <h6 className="absolute bottom-10 left-20 text-2xl text-black">AIR FORCE 1</h6>
+                    <h6 className="absolute bottom-10 left-10 text-2xl text-black">AIR FORCE 1</h6>
                 </div>
                 <div className="absolute w-11/12 h-11/12 inset-0 m-auto p-[15px] z-40 bg-amber-300 shadow-lg group-hover:left-full duration-500">
                     <p class="text-center font-bold text-xl">Off White x Nike Air Force 1</p>
@@ -32,7 +32,10 @@ export default function CanvasTransform(){
                 </div>
             </div>
 
-    <div className="relative w-[260px] h-[340px] group mx-40">
+
+            {/* imagen 2 */}
+
+    <div className="relative  w-[300px] h-[380px] group mx-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/nike_coyote.jpg"></img>
                     <h6 className="absolute bottom-10 left-10 text-2xl text-black">LeBron 18 Low</h6>
@@ -63,7 +66,9 @@ export default function CanvasTransform(){
                 </div>
             </div>
 
-            <div className="relative w-[260px] h-[340px] group mx-40">
+
+{/* imagen 3 */}
+            <div className="relative  w-[300px] h-[380px] group mx-40">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/pastenis.jpg"></img>
                     <h6 className="absolute bottom-10 left-10 text-2xl text-black">MEATBALLZIES</h6>
