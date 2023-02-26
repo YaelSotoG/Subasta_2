@@ -15,7 +15,7 @@ return (
     {/* <div> 
       <h1>{resultado.id}</h1>
     </div> */}
-    <CanvasTransform></CanvasTransform>
+    <CanvasTransform />
  
   </MainLayout>
 ) 
