@@ -52,7 +52,7 @@ export default function Navbar() {
       <div className="flex justify-end items-center px-3 py-4 bg-gradient-to-b from-black to-white  fixed w-full h-32 z-50 ">
       <button class="group relative h-16 w-60 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={llamarWallet}>
       <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-      <span class="relative text-bold text-4xl text-black group-hover:text-white">Login</span>
+      <span class="relative text-bold text-4xl text-[#8f250c] group-hover:text-white">LOG IN</span>
       </button>
      
       </div>
