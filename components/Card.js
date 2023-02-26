@@ -61,7 +61,7 @@ export default function Card(){
     const getDeadTime = () => {
         let deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 120);
+        deadline.setSeconds(deadline.getSeconds() + 240);
         return deadline;
     }
   
@@ -207,12 +207,7 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">
-                                <span id="days"></span>días/ 
-                                <span id="hours"></span>horas/
-                                <span id="minutes"></span>minutos/
-                                <span id="seconds"></span>segundos
-
+                                <p className="text-center ">{timer}
                                 </p>
                             </div>             
                         </div>
@@ -247,11 +242,7 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">
-                                <span id="days"></span>días/ 
-                                <span id="hours"></span>horas/
-                                <span id="minutes"></span>minutos/
-                                <span id="seconds"></span>segundos
+                                <p className="text-center ">{timer}
                                 </p>
                             </div>             
                         </div>
