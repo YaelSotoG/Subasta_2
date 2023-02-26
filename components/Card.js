@@ -12,7 +12,7 @@ export default function Card(){
     
 
 
-    const [timer, setTimer] = useState('00:02:40');
+    const [timer, setTimer] = useState('00:10:00');
     const [precioo, setPrecioo] = useState (0);
     const [precioa, setPrecioa] = useState (1);
     const [preciob, setPreciob] = useState (2);
@@ -72,7 +72,7 @@ export default function Card(){
     const getDeadTime = () => {
         let deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 10);
+        deadline.setSeconds(deadline.getSeconds() + 240);
         return deadline;
     }
   
