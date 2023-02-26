@@ -1,8 +1,85 @@
-import { useState } from "react";
+
 import React from "react";
+import { useState, useRef, useEffect } from "react";
+
+
 
 /* eslint-disable @next/next/no-img-element*/ 
 export default function Card(){
+
+
+
+    
+
+
+    const [timer, setTimer] = useState('00:10:00');
+    
+    const Ref = useRef(null);
+  
+  
+    
+  
+  
+    const getTimeRemaining = (e) => {
+        const total = Date.parse(e) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / 1000 / 60 / 60) % 24);
+        return {
+            total, hours, minutes, seconds
+        };
+    }
+  
+  
+    const startTimer = (e) => {
+        let { total, hours, minutes, seconds } 
+                    = getTimeRemaining(e);
+        if (total >= 0) {
+  
+            setTimer(
+                (hours > 9 ? hours : '0' + hours) + ':' +
+                (minutes > 9 ? minutes : '0' + minutes) + ':'
+                + (seconds > 9 ? seconds : '0' + seconds)
+            )
+        }
+    }
+  
+  
+    const clearTimer = (e) => {
+  
+        
+        setTimer('00:00:00');
+  
+        
+        if (Ref.current) clearInterval(Ref.current);
+        const id = setInterval(() => {
+            startTimer(e);
+        }, 1000)
+        Ref.current = id;
+    }
+  
+    const getDeadTime = () => {
+        let deadline = new Date();
+
+        deadline.setSeconds(deadline.getSeconds() + 240);
+        return deadline;
+    }
+  
+    
+    useEffect(() => {
+        clearTimer(getDeadTime());
+    }, []);
+  
+   
+    const onClickReset = () => {
+        clearTimer(getDeadTime());
+    }
+
+
+
+
+
+
     
     const [precioo, setPrecioo] = useState (1200);
     const [precioa, setPrecioa] = useState (1200);
@@ -26,22 +103,48 @@ export default function Card(){
 
     }
    
+   function trns() {
+    const web3 =  require("@solana/web3.js");
+    ( async () => {
     
-    // function enviarpuja(seleccion, valor){
-    //     if(seleccion=='a'){
-    //         setPrecioa(valor);
-    //     }else{
-    //         if(seleccion=='b'){
-    //             setPreciob(valorpuja);
-    //         }
-    //             else{
-    //                 setPrecioc(valorpuja);
+    console.log(web3.clusterApiUrl('devnet'))
+    const connection = new web3.Connection(
+      web3.clusterApiUrl('devnet'),
+      'confirmed',
+    );
 
-    //             }
-            
-    //     }
+    console.log(await connection.getEpochInfo())
+  
+    const from = web3.Keypair.generate();
     
-    // }
+    const fromAirDropSignature = await connection.requestAirdrop(from.publicKey, 2 * web3.LAMPORTS_PER_SOL)
+    await connection.confirmTransaction(fromAirDropSignature);
+  
+  
+    
+    const to = web3.Keypair.generate();
+
+
+  
+    const transaction = new web3.Transaction().add(
+      web3.SystemProgram.transfer({
+        fromPubkey: from.publicKey,
+        toPubkey: to.publicKey,
+        lamports: 1000000,
+      }),
+    );
+
+    
+    const signature = await web3.sendAndConfirmTransaction(
+      connection,
+      transaction,
+      [from],
+    );
+    console.log('SIGNATURE', signature);
+    })();
+
+     
+  }
 
    
     return(
@@ -66,7 +169,8 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">{timer}
+                                    </p>
                             </div>             
                         </div>
                     
@@ -83,7 +187,7 @@ export default function Card(){
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn">HACER OFERTA</a>
+                        <a href="#" class="btn" onClick={trns}>HACER OFERTA</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +207,8 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">{timer}
+                                </p>
                             </div>             
                         </div>
                     
@@ -137,7 +242,8 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">{timer}
+                                </p>
                             </div>             
                         </div>
                     
@@ -199,4 +305,5 @@ export default function Card(){
         
         
     )
+    
 }
