@@ -1,4 +1,4 @@
-export default function CanvasTransform(){
+export default function Card(){
     return(
         <div className=" relative flex mt-40 z-40 h-[800px]">
             <div className="relative w-[300px] h-[380px] group mx-40">
