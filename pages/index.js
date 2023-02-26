@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import MainLayout from "../components/layouts/MainLayout"
 import Heater from "../components/Heater"
+import Navbar from '../components/Navbar'
 
 
 export default function Home({resultado}) {
