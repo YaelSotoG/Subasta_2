@@ -81,10 +81,10 @@ export default function Card(){
 
 
     
-    const [precioo, setPrecioo] = useState (1200);
-    const [precioa, setPrecioa] = useState (1200);
+    const [precioo, setPrecioo] = useState (1);
+    const [precioa, setPrecioa] = useState (2);
     const [preciob, setPreciob] = useState (2000);
-    const [precioc, setPrecioc] = useState (50000);
+    const [precioc, setPrecioc] = useState (1);
 
    
     let valorpuja;
@@ -159,7 +159,7 @@ export default function Card(){
             <div className=" relative w-[300px] h-[380px] group mx-[250px] my-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/air_force.jpg"></img>
-                    <h6>${precioa}</h6>
+                    <h6>SOL {precioa}</h6>
                     <h6 className=" flex justify-center bottom-10 left-10 text-2xl text-black">AIR FORCE 1</h6>
                 </div>
                 <div className="absolute w-11/12 h-11/12 inset-0 m-auto p-[15px] z-40 bg-amber-300 shadow-lg group-hover:left-full duration-500">
@@ -198,7 +198,7 @@ export default function Card(){
     <div className="relative  w-[300px] h-[380px] group mx-24 my-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/nike_coyote.jpg"></img>
-                    <h6>${preciob}</h6>
+                    <h6>SOL {preciob}</h6>
                     <h6 className="flex justify-center bottom-10 left-10 text-2xl text-black">LeBron 18 Low</h6>
                 </div>
                 <div className="absolute w-11/12 h-11/12 inset-0 m-auto p-[15px] z-40 bg-amber-300 shadow-lg group-hover:left-full duration-500">
@@ -233,7 +233,7 @@ export default function Card(){
             <div className="relative  w-[300px] h-[380px] group mx-[250px] my-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/pastenis.jpg"></img>
-                    <h6>${precioc}</h6>
+                    <h6>SOL {precioc}</h6>
                     <h6 className="flex justify-center bottom-10 left-10 text-2xl text-black">MEATBALLZIES</h6>
                 </div>
                 <div className="absolute w-11/12 h-11/12 inset-0 m-auto p-[15px] z-40 bg-amber-300 shadow-lg group-hover:left-full duration-500">
@@ -267,7 +267,7 @@ export default function Card(){
             <div className=" relative w-[300px] h-[380px] group mx-24 my-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
                     <img src= "/images/air_force.jpg"></img>
-                    <h6>${precioa}</h6>
+                    <h6>SOL {precioa}</h6>
                     <h6 className="flex justify-center  bottom-10 left-10 text-2xl text-black">AIR FORCE 1</h6>
                 </div>
                 <div className="absolute w-11/12 h-11/12 inset-0 m-auto p-[15px] z-40 bg-amber-300 shadow-lg group-hover:left-full duration-500">
