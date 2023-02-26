@@ -65,8 +65,8 @@ export default function Navbar() {
   return (
     <>
       <div className="flex justify-end items-center px-3 py-4 bg-gradient-to-b from-black to-white  fixed w-full h-32 ">
-        <button className="bg-[#8f250c] h-16 rounded-full w-60" onClick={firma}>
-            <h1 className="text-bold text-4xl text-white">Wallet</h1>
+        <button className="bg-[#8f250c] h-16 rounded-full w-60" onClick={llamarWallet}>
+            <h1 className="text-bold text-4xl text-white">Login using Phantoms</h1>
         </button>
       </div>
     </>
