@@ -45,7 +45,13 @@ export default function Card(){
 
    
     return(
-        <div className=" grid md:grid-cols-2 gric-cols-1 relative  mt-40 z-40 h-fit">
+        <>
+        <div className="flex justify-center">
+        <hr className='border-[3px] border-[#8f250c] border-solid w-11/12'/>
+
+        </div>
+        <div className=" grid md:grid-cols-2 gric-cols-1 relative  z-40 h-fit">
+                
             {/* <div></div> */}
             <div className=" relative w-[300px] h-[380px] group mx-[250px] my-24">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
@@ -189,7 +195,7 @@ export default function Card(){
 
         </div>
 
-      
+        </>
         
         
     )
