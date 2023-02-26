@@ -13,7 +13,7 @@ return (
   <MainLayout>
     <Heater />
   
-    {/* <Card/> */}
+    <Card/>
  
   </MainLayout>
 ) 
