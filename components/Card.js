@@ -12,7 +12,14 @@ export default function Card(){
     
 
 
-    const [timer, setTimer] = useState('00:10:00');
+    const [timer, setTimer] = useState('00:02:40');
+    const [precioo, setPrecioo] = useState (0);
+    const [precioa, setPrecioa] = useState (1);
+    const [preciob, setPreciob] = useState (2);
+    const [precioc, setPrecioc] = useState (1000);
+    const [stateboton,setStateboton]=useState(false);
+    const [stateoferta,setStateoferta]=useState(true);
+
     
     const Ref = useRef(null);
   
@@ -35,12 +42,16 @@ export default function Card(){
         let { total, hours, minutes, seconds } 
                     = getTimeRemaining(e);
         if (total >= 0) {
-  
+            
             setTimer(
                 (hours > 9 ? hours : '0' + hours) + ':' +
                 (minutes > 9 ? minutes : '0' + minutes) + ':'
                 + (seconds > 9 ? seconds : '0' + seconds)
             )
+        }
+        else{
+            setStateboton(true);
+            setStateoferta(false);
         }
     }
   
@@ -61,7 +72,7 @@ export default function Card(){
     const getDeadTime = () => {
         let deadline = new Date();
 
-        deadline.setSeconds(deadline.getSeconds() + 240);
+        deadline.setSeconds(deadline.getSeconds() + 10);
         return deadline;
     }
   
@@ -81,11 +92,7 @@ export default function Card(){
 
 
     
-    const [precioo, setPrecioo] = useState (1);
-    const [precioa, setPrecioa] = useState (2);
-    const [preciob, setPreciob] = useState (2000);
-    const [precioc, setPrecioc] = useState (1);
-
+   
    
     let valorpuja;
     const puja=(event)=>{
@@ -181,13 +188,13 @@ export default function Card(){
                         <div className="flex flex-col items-center">
                             
                             <input type="number" id="precioaa" name="precioaa"  onChange={puja}></input>
-                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviara}> Puja</button>
+                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviara} disabled={stateboton}> Puja</button>
                             
                         </div>
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn" onClick={trns}>HACER OFERTA</a>
+                        <button href="#" class="btn" onClick={trns} disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
@@ -218,12 +225,12 @@ export default function Card(){
                         </ul>
                         <div className="flex flex-col items-center">
                         <input type="number" id="precioaa" name="preciob" onChange={puja}></input>
-                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviarb}> Puja</button>
+                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviarb} disabled={stateboton}> Puja</button>
                         </div>
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn">HACER OFERTA</a>
+                        <button href="#" class="btn" disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
@@ -254,12 +261,12 @@ export default function Card(){
                         </ul>
                         <div className="flex flex-col items-center">
                         <input type="number" id="precioc" name="precioc" onChange={puja}></input>
-                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviarc}> Puja</button>
+                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviarc} disabled={stateboton}> Puja</button>
                         </div>
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn">HACER OFERTA</a>
+                        <button href="#" class="btn" disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
@@ -277,7 +284,8 @@ export default function Card(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">{timer}
+                                    </p>
                             </div>             
                         </div>
                     
@@ -288,13 +296,13 @@ export default function Card(){
                         <div className="flex flex-col items-center">
                             
                             <input type="number" id="precioaa" name="precioaa"  ></input>
-                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" > Puja</button>
+                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" disabled={stateboton} > Puja</button>
                             
                         </div>
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn">HACER OFERTA</a>
+                        <button href="#" class="btn" disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
