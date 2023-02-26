@@ -3,7 +3,8 @@ import MainLayout from "../components/layouts/MainLayout"
 import Heater from "../components/Heater"
 import Navbar from '../components/Navbar'
 
-  import CanvasTransform from '../components/Card'
+  // import CanvasTransform from '../components/Card'
+import Card from '../components/Card'
 
 
 export default function Home({resultado}) {
@@ -11,11 +12,8 @@ console.log(resultado)
 return (
   <MainLayout>
     <Heater />
-    {/* console.log(data); */}
-    {/* <div> 
-      <h1>{resultado.id}</h1>
-    </div> */}
-    <CanvasTransform />
+  
+    <Card/>
  
   </MainLayout>
 ) 
