@@ -14,6 +14,8 @@ export default function Navbar() {
      if(provider?.isPhantom){
        return provider;
           
+        }else{
+          window.open('https://phantom.app/', '_blank');
         }
        }
       
@@ -29,18 +31,21 @@ export default function Navbar() {
    provider.on("connect", () => console.log("connected!"));
 
   
-
+   var Boton;
     try {
-      const resp = await window.phantom.solana.connect();
+      resp = await window.phantom.solana.connect();
       const publicKey = resp?.publicKey?.toString()
       
      
       console.log(VisualizarDatos)
       console.log(publicKey);
-    
+
+  
      } catch (error) {
        console.log("ya valio =>", error)
      }
+     
+    
 
 
     
@@ -51,7 +56,7 @@ export default function Navbar() {
     <>
       <div className="flex justify-end items-center px-3 py-4 bg-gradient-to-b from-black to-white  fixed w-full h-32 z-50 ">
         <button className="bg-[#8f250c] h-16 rounded-full w-60" onClick={llamarWallet}>
-            <h1 className="text-bold text-4xl text-white">Login</h1>
+            <h1 className="text-bold text-4xl text-white">LogIn</h1>
         </button>
       </div>
     </>

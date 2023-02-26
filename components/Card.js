@@ -1,5 +1,62 @@
+
+
+const web3 =  require("@solana/web3.js");
+     
+
+
+
+
 export default function CanvasTransform(){
+
+
+   
+  function trns() {
+    ( async () => {
+    
+    console.log(web3.clusterApiUrl('devnet'))
+    const connection = new web3.Connection(
+      web3.clusterApiUrl('devnet'),
+      'confirmed',
+    );
+
+    console.log(await connection.getEpochInfo())
+  
+    const from = web3.Keypair.generate();
+    
+    const fromAirDropSignature = await connection.requestAirdrop(from.publicKey, 2 * web3.LAMPORTS_PER_SOL)
+    await connection.confirmTransaction(fromAirDropSignature);
+  
+  
+    
+    const to = web3.Keypair.generate();
+
+
+  
+    const transaction = new web3.Transaction().add(
+      web3.SystemProgram.transfer({
+        fromPubkey: from.publicKey,
+        toPubkey: to.publicKey,
+        lamports: 1000000,
+      }),
+    );
+
+    
+    const signature = await web3.sendAndConfirmTransaction(
+      connection,
+      transaction,
+      [from],
+    );
+    console.log('SIGNATURE', signature);
+    })();
+
+     
+  }
+
+    
+
     return(
+
+        
         <div className=" relative flex mt-40 z-40 h-[800px]">
             <div className="relative w-[300px] h-[380px] group mx-40">
                 <div className="relative w-full h-full shadow-md bg-gradient-to-b from-black to-white bg-center bg-cover z-50 group">
@@ -12,7 +69,12 @@ export default function CanvasTransform(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">
+                                <span id="days"></span>días/ 
+                                <span id="hours"></span>horas/
+                                <span id="minutes"></span>minutos/
+                                <span id="seconds"></span>segundos
+                                    </p>
                             </div>             
                         </div>
                     
@@ -27,7 +89,7 @@ export default function CanvasTransform(){
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <a href="#" class="btn">HACER OFERTA</a>
+                        <a href="#" class="btn" onClick={trns}>HACER OFERTA</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +108,13 @@ export default function CanvasTransform(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">
+                                <span id="days"></span>días/ 
+                                <span id="hours"></span>horas/
+                                <span id="minutes"></span>minutos/
+                                <span id="seconds"></span>segundos
+
+                                </p>
                             </div>             
                         </div>
                     
@@ -79,7 +147,12 @@ export default function CanvasTransform(){
                         <div class="description">
                             <div class="item">
                                 <i class="fa-regular fa-clock"></i>
-                                <p className="text-center ">Termina 28/02/2023</p>
+                                <p className="text-center ">
+                                <span id="days"></span>días/ 
+                                <span id="hours"></span>horas/
+                                <span id="minutes"></span>minutos/
+                                <span id="seconds"></span>segundos
+                                </p>
                             </div>             
                         </div>
                     
@@ -100,4 +173,5 @@ export default function CanvasTransform(){
             </div>
         </div>
     )
+    
 }
