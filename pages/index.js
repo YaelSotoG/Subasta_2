@@ -12,11 +12,8 @@ console.log(resultado)
 return (
   <MainLayout>
     <Heater />
-    {/* console.log(data); */}
-    {/* <div> 
-      <h1>{resultado.id}</h1>
-    </div> */}
-    <Card/>
+  
+    {/* <Card/> */}
  
   </MainLayout>
 ) 
