@@ -21,9 +21,9 @@ export default function Card(){
     const [stateboton,setStateboton]=useState(false);
     const [stateoferta,setStateoferta]=useState(true);
 
-    /*const minta=new web3.PublicKey("HE9YJu1yE7VquBnzJktXcYGbAW46oLKBJK4mqMPTz82x"); //Token de NFT
+    const minta=new web3.PublicKey("HE9YJu1yE7VquBnzJktXcYGbAW46oLKBJK4mqMPTz82x"); //Token de NFT
     const mintb=new web3.PublicKey("3GvQ3zoHPcWwWjmoMvErn7habwMwHRWV86HEZ136LES8"); //Token de NFT
-    const mintc=new web3.PublicKey("HX3Mj3vSwCLN216HUCYfktfEFZg35ALMAYHB71pgLcja"); //Token de NFT*/
+    const mintc=new web3.PublicKey("HX3Mj3vSwCLN216HUCYfktfEFZg35ALMAYHB71pgLcja"); //Token de NFT
 
     
     const Ref = useRef(null);
