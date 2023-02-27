@@ -119,10 +119,10 @@ export default function Card(){
     (async () => {
           // Connect to cluster
           console.log(web3.clusterApiUrl('devnet'))
-          //const rpcURL ="https://cold-multi-paper.solana-devnet.quiknode.pro/"; //Descomentar esta  en caso de que el servidor no jale
+          const rpcURL ="https://cold-multi-paper.solana-devnet.quiknode.pro/"; //Descomentar esta  en caso de que el servidor no jale
           const connection = new web3.Connection(
-          //rpcURL, //Descomentar esta  en caso de que el servidor no jale
-          web3.clusterApiUrl('devnet'),//Comentar esta en caso de que el servidor no jale
+          rpcURL, //Descomentar esta  en caso de que el servidor no jale
+          //web3.clusterApiUrl('devnet'),//Comentar esta en caso de que el servidor no jale
           'confirmed',
           );
         
@@ -172,18 +172,18 @@ export default function Card(){
         })();
       }
     function trnsa(){
-        setPrecioa(precioo);
+        //setPrecioa(precioo);
         console.log(precioa);
         transaccion(precioa);
     }
     function trnsb(){
-        setPreciob(precioo);
+        //setPreciob(precioo);
         console.log(preciob);
         transaccion(preciob);
     }
 
     function trnsc(){
-        setPrecioc(precioo);
+        //setPrecioc(precioo);
         console.log(precioc);
         transaccion(precioc);
     }
