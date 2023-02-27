@@ -33,11 +33,11 @@ export default function Navbar() {
   
    var Boton;
     try {
-      resp = await window.phantom.solana.connect();
+      const resp = await window.phantom.solana.connect();
       const publicKey = resp?.publicKey?.toString()
       
      
-      console.log(VisualizarDatos)
+      //console.log(VisualizarDatos)
       console.log(publicKey);
 
   

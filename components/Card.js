@@ -1,7 +1,8 @@
 
 import React from "react";
 import { useState, useRef, useEffect } from "react";
-
+const web3 =require("@solana/web3.js");
+const bs58 = require('bs58');
 
 
 /* eslint-disable @next/next/no-img-element*/ 
@@ -19,6 +20,10 @@ export default function Card(){
     const [precioc, setPrecioc] = useState (1000);
     const [stateboton,setStateboton]=useState(false);
     const [stateoferta,setStateoferta]=useState(true);
+
+    const minta=new web3.PublicKey("HE9YJu1yE7VquBnzJktXcYGbAW46oLKBJK4mqMPTz82x"); //Token de NFT
+    const mintb=new web3.PublicKey("3GvQ3zoHPcWwWjmoMvErn7habwMwHRWV86HEZ136LES8"); //Token de NFT
+    const mintc=new web3.PublicKey("HX3Mj3vSwCLN216HUCYfktfEFZg35ALMAYHB71pgLcja"); //Token de NFT
 
     
     const Ref = useRef(null);
@@ -109,51 +114,79 @@ export default function Card(){
         setPrecioc(precioo);
 
     }
-   
-   function trns() {
-    const web3 =  require("@solana/web3.js");
-    ( async () => {
-    
-    console.log(web3.clusterApiUrl('devnet'))
-    const connection = new web3.Connection(
-      web3.clusterApiUrl('devnet'),
-      'confirmed',
-    );
 
-    console.log(await connection.getEpochInfo())
-  
-    const from = web3.Keypair.generate();
-    
-    const fromAirDropSignature = await connection.requestAirdrop(from.publicKey, 2 * web3.LAMPORTS_PER_SOL)
-    await connection.confirmTransaction(fromAirDropSignature);
-  
-  
-    
-    const to = web3.Keypair.generate();
+    function transaccion(precio,token){
+    (async () => {
+          // Connect to cluster
+          console.log(web3.clusterApiUrl('devnet'))
+          const rpcURL ="https://cold-multi-paper.solana-devnet.quiknode.pro/"; //Descomentar esta  en caso de que el servidor no jale
+          const connection = new web3.Connection(
+          rpcURL, //Descomentar esta  en caso de que el servidor no jale
+          //web3.clusterApiUrl('devnet'),//Comentar esta en caso de que el servidor no jale
+          'confirmed',
+          );
+        
+          //Quien envía la transacción, la string de la secretKey se obtiene del log in
+          const secKey="4Tadih4K5Subg3MMayn2bhWAKSw8UKFY1wzQQxyYuqUBttCov5a1b6u9KSMXGCQX3hnSuE3qX54njsBYgtBVDMv9";
+          let from = web3.Keypair.fromSecretKey(bs58.decode(secKey));
+          //let from=new web3.PublicKey(pubKey);
+          //const from=pubKey;
+          const airdropSignature = await connection.requestAirdrop(from.publicKey, 0 * web3.LAMPORTS_PER_SOL,)
+          await connection.confirmTransaction(airdropSignature);
+      
+          //Quien recibe la transaccion
+          //const to=new web3.PublicKey("Fo6qUPkaKR9gCutu1nSf4rFd44n3LpYznvyWoXCkjzC3");// la de nosotros es fija
+          const toKey="2xs1oaV4ASFXFcFNkJmAaiVtVhv25c9axT6wAdbCVtcfGmnpCMtGy7A38BGC7tJneaogYxQfEKZm8extG8vRrW3M";
+          let to = web3.Keypair.fromSecretKey(bs58.decode(toKey));
+          // Add transfer instruction to transaction
+          const transaction = new web3.Transaction().add(
+            web3.SystemProgram.transfer({
+              fromPubkey:  from.publicKey,
+              toPubkey: to.publicKey,
+              lamports: precio*1000000000, //multiplicar por la variable que aumenta en la subasta
+            }),
+          );
+      
+          // Sign transaction, broadcast, and confirm
+          const signature = await web3.sendAndConfirmTransaction(
+            connection,
+            transaction,
+            [from],
+          );
+          console.log('SIGNATURE', signature);
+          console.log('se recibió transacción de', from.publicKey.toString());
+        //Transferencia de NFT
+        let tx = new web3.Transaction();
+        /*tx.add(
+            web3.createTransferCheckedInstruction(
+            to, // from
+            token, // mint
+            from, // to
+            to.publicKey, // from's owner
+            1, // amount
+            0 // decimals
+            )
+        );  */
+        //console.log("se envió el NFT");  
+        //const sign = await sendAndConfirmTransaction(connection,tx,[to]);
+        })();
+      }
+    function trnsa(){
+        setPrecioa(precioo);
+        console.log(precioa);
+        transaccion(precioa,minta);
+    }
+    function trnsb(){
+        setPreciob(precioo);
+        console.log(preciob);
+        transaccion(preciob,mintb);
+    }
 
-
-  
-    const transaction = new web3.Transaction().add(
-      web3.SystemProgram.transfer({
-        fromPubkey: from.publicKey,
-        toPubkey: to.publicKey,
-        lamports: 1000000,
-      }),
-    );
-
-    
-    const signature = await web3.sendAndConfirmTransaction(
-      connection,
-      transaction,
-      [from],
-    );
-    console.log('SIGNATURE', signature);
-    })();
-
-     
-  }
-
-   
+    function trnsc(){
+        setPrecioc(precioo);
+        console.log(precioc);
+        transaccion(precioc,mintc);
+    }
     return(
         <>
         <div className="flex justify-center">
@@ -194,7 +227,7 @@ export default function Card(){
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <button href="#" class="btn" onClick={trns} disabled={stateoferta}>HACER OFERTA</button>
+                        <button href="#" class="btn" onClick={trnsa} disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
@@ -230,7 +263,7 @@ export default function Card(){
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <button href="#" class="btn" disabled={stateoferta}>HACER OFERTA</button>
+                        <button href="#" class="btn" onClick={trnsb} disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
@@ -266,7 +299,7 @@ export default function Card(){
                     </div>
 
                     <div className="p-2.5 mt-2 font-bold text-white text-center bg-black">
-                        <button href="#" class="btn" disabled={stateoferta}>HACER OFERTA</button>
+                        <button href="#" class="btn" onClick={trnsc} disabled={stateoferta}>HACER OFERTA</button>
                     </div>
                 </div>
             </div>
