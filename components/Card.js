@@ -115,7 +115,7 @@ export default function Card(){
 
     }
 
-    function transaccion(precio,token){
+    function transaccion(precio){
     (async () => {
           // Connect to cluster
           console.log(web3.clusterApiUrl('devnet'))
@@ -174,18 +174,18 @@ export default function Card(){
     function trnsa(){
         setPrecioa(precioo);
         console.log(precioa);
-        transaccion(precioa,minta);
+        transaccion(precioa);
     }
     function trnsb(){
         setPreciob(precioo);
         console.log(preciob);
-        transaccion(preciob,mintb);
+        transaccion(preciob);
     }
 
     function trnsc(){
         setPrecioc(precioo);
         console.log(precioc);
-        transaccion(precioc,mintc);
+        transaccion(precioc);
     }
     return(
         <>
