@@ -258,7 +258,7 @@ export default function Card(){
                         </ul>
                         <div className="flex flex-col items-center">
                         <input type="number" id="precioaa" name="preciob" onChange={puja}></input>
-                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={trnsa} disabled={stateboton}> Puja</button>
+                            <button className="w-[70px] h-[40px] bg-black text-white m-[20px]" onClick={enviarb} disabled={stateboton}> Puja</button>
                         </div>
                     </div>
 
