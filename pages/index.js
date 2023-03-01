@@ -10,12 +10,15 @@ import Card from '../components/Card'
 export default function Home({resultado}) {
 console.log(resultado)
 return (
+
+
   <MainLayout>
     <Heater />
   
     <Card/>
  
   </MainLayout>
+ 
 ) 
 
   

@@ -53,9 +53,9 @@ export default function Navbar() {
 
   }
   return (
-    <>
+    <nav>
     
-      <div className="pl-0 pt-0 grid grid-cols-2 items-center px-3 py-4 bg-[#17002E]  fixed w-full h-32 z-50 ">
+      <div className="pl-0 pt-0 grid grid-cols-2 items-center px-3 py-4 bg-[#17002E]  w-full h-32 z-50 ">
 
         {/* imagen */}
         <div className="border-0 m-0 flex ">
@@ -80,7 +80,7 @@ export default function Navbar() {
       </div>
      
       </div>
-    </>
+    </nav>
     
   );
   }
