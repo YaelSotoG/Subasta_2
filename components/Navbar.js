@@ -55,38 +55,23 @@ export default function Navbar() {
   return (
     <>
     
-      <div className="pl-0 pt-0 grid grid-cols-4 items-center px-3 py-4 bg-gradient-to-b from-black to-white  fixed w-full h-32 z-50 ">
-        <div className="border-0 m-0 ">
-      <img className="w-28 h-28" src="/images/logo.jpg"></img>
-          
-        </div>
-        <div className="flex justify-start  col-span-2">
-        <button class="group relative h-[50px] w-40 overflow-hidden rounded-lg bg-white text-lg shadow" >
-            <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-bold text-2xl text-[#8f250c] group-hover:text-white">Inicio</span>
-          </button>
-          <button class="group relative h-[50px] w-40 overflow-hidden rounded-lg bg-white text-lg shadow  ml-[20px]" >
-            <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-bold text-2xl text-[#8f250c] group-hover:text-white">Conocenos</span>
-          </button>
-      
-          <button class="group relative h-[50px] w-40 overflow-hidden rounded-lg bg-white text-lg shadow  ml-[20px]" >
-            <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-bold text-2xl text-[#8f250c] group-hover:text-white">Ubicacion </span>
-          </button>
-          
-          <button class="group relative h-[50px] w-40 overflow-hidden rounded-lg bg-white text-lg shadow  ml-[20px]" >
-            <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-            <span class="relative text-bold text-2xl text-[#8f250c] group-hover:text-white">Apartado</span>
-          </button>
+      <div className="pl-0 pt-0 grid grid-cols-2 items-center px-3 py-4 bg-[#17002E]  fixed w-full h-32 z-50 ">
 
-          {/* <ul className="list-none text-white float-left">
-            <li>Inicio</li>
-            <li>Ofertas</li>
-            <li>Conocenos</li>
-            <li>Reserva</li>
-          </ul> */}
+        {/* imagen */}
+        <div className="border-0 m-0 flex ">
+          <img className="w-28 h-28" src="/images/logo.jpg"></img>
+       
+
+           {/* texto */}
+          <div className="flex justify-start text-white  items-center">
+              <span className="mr-12 text-xl">Contacto</span>
+              <span className="mr-12 text-xl">Ofertas</span>
+              <span className="mr-12 text-xl">Conocenos</span>
+              <span className="mr-12 text-xl">Ubicacion</span>
+          </div>
         </div>
+
+        {/* wallet */}
         <div className="flex justify-end">
       <button class="group relative h-16 w-60 overflow-hidden rounded-lg bg-white text-lg shadow" onClick={llamarWallet}>
       <div class="absolute inset-0 w-3 bg-[#8f250c] transition-all duration-[250ms] ease-out group-hover:w-full"></div>
